@@ -1,6 +1,13 @@
 package info
 
-const MainTitle = "BMI calculator"
-const Separator = "--------------------"
+import "fmt"
+
+const mainTitle = "BMI calculator"
+const separator = "--------------------"
 const WeightPrompt = "Please, enter your weight (kg) "
 const HeightPrompt = "Please, enter your height (m) "
+
+func Printwelcome() {
+	fmt.Println(mainTitle)
+	fmt.Println(separator)
+}
