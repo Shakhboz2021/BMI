@@ -1,29 +1,22 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
-	"os"
 	"strconv"
 	"strings"
+
+	"github.com/Shakhboz2021/BMI/info"
 )
 
-var reader = bufio.NewReader(os.Stdin) // func assigments cannot be a const because it must run main()
-
-const mainTitle = "BMI calculator"
-const separator = "--------------------"
-const weightPrompt = "Please, enter your weight (kg) "
-const heightPrompt = "Please, enter your height (m) "
-
 func main() {
-	fmt.Println(mainTitle)
+	fmt.Println(info.MainTitle)
 
-	fmt.Println(separator)
+	fmt.Println(info.Separator)
 
-	fmt.Print(weightPrompt)
+	fmt.Print(info.WeightPrompt)
 	weigthInput, _ := reader.ReadString('\n')
 
-	fmt.Print(heightPrompt)
+	fmt.Print(info.HeightPrompt)
 	heightInput, _ := reader.ReadString('\n')
 
 	weigthInput = strings.Replace(weigthInput, "\n", "", -1)
