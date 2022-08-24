@@ -8,17 +8,22 @@ import (
 	"strings"
 )
 
-var reader = bufio.NewReader(os.Stdin)
+var reader = bufio.NewReader(os.Stdin) // func assigments cannot be a const because it must run main()
+
+const mainTitle = "BMI calculator"
+const separator = "--------------------"
+const weightPrompt = "Please, enter your weight (kg) "
+const heightPrompt = "Please, enter your height (m) "
 
 func main() {
-	fmt.Println("BMI calculator")
+	fmt.Println(mainTitle)
 
-	fmt.Println("--------------------")
+	fmt.Println(separator)
 
-	fmt.Print("Please, enter your weight (kg) ")
+	fmt.Print(weightPrompt)
 	weigthInput, _ := reader.ReadString('\n')
 
-	fmt.Print("Please, enter your height (m) ")
+	fmt.Print(heightPrompt)
 	heightInput, _ := reader.ReadString('\n')
 
 	weigthInput = strings.Replace(weigthInput, "\n", "", -1)
@@ -27,6 +32,7 @@ func main() {
 	weight, _ := strconv.ParseFloat(weigthInput, 64)
 	height, _ := strconv.ParseFloat(heightInput, 64)
 
-	fmt.Print(weight)
-	fmt.Print(height)
+	bmi := weight / (height * height)
+
+	fmt.Printf("Your BMI is %.2f", bmi)
 }
